@@ -1,0 +1,17 @@
+{% block head %}
+    <!DOCTYPE html>
+    <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Hamster Hub{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}" />
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/sign.css') }}">
+    {% endblock %}
+    <script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ asset('assets/js/modalScript.js') }}"></script>
+    <script src="{{ asset('assets/js/signAjax.js') }}"></script>
+</head>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% block addVideo %}
+    <button value="Add Video" name="addVideo">
+        Add Video
+    </button>
+    <div class="addVideoWindow">
+        <div class="modal">
+            <form name="addVideo" class="form" method="post" id="addVideo">
+                <fieldset class="borderForm">
+                    <p class="title"> Add Video </p>
+                    <div class="linkInput">
+                        <label class="labelLink" for="link">LINK</label><br>
+                        <input type="url" id="link" name="videoUrl"><br>
+                    </div>
+                    <div class="videoNameInput">
+                        <label class="labelVideoName" for="videoName">Video Name</label><br>
+                        <input type="text" id="videoName" name="videoName"><br>
+                    </div>
+                    <div class="nameInput">
+                        <label class="labelName" for="videoDescription">Description</label><br>
+                        <input type="text" name="videoDescription" id="videoDescription"><br><br>
+                    </div>
+                    <input type="submit" class="button" value="ADD VIDEO">
+                </fieldset>
+            </form>
+            <a href="" class="close">X</a>
+        </div>
+    </div>
+{% endblock %}

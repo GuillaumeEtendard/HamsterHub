@@ -1,0 +1,27 @@
+{% include 'UserBundle:Base:head.html.twig' %}
+
+<body>
+{% include 'UserBundle:Base:header.html.twig' %}
+<h4>Mes vidéos</h4>
+{% include 'UserBundle:Register:signIn.html.twig' %}
+{% include 'UserBundle:Register:signUp.html.twig' %}
+{% include 'UserBundle:PagesVideo:addVideo.html.twig' %}
+
+<div class="loader"></div>
+
+{% for video in videos %}
+    <ul>
+        <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
+        <li>
+            <a href="/watch/{{ video.youtubeId }}"><img
+                        src="http://img.youtube.com/vi/{{ video.youtubeId }}/mqdefault.jpg"></a>
+        </li>
+        <li>Posted on {{ video.videoDate.date|date("d/m/Y") }}</li>
+        <li>{{ video.description }}</li>
+    </ul>
+    {% include 'UserBundle:Videos:editVideo.html.twig' %}
+    {% include 'UserBundle:Videos:deleteVideo.html.twig' %}
+{% endfor %}
+
+</body>
+</html>

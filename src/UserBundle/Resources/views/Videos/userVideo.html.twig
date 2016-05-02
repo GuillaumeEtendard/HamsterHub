@@ -1,0 +1,25 @@
+{% include 'UserBundle:Base:head.html.twig' %}
+
+<body>
+{% include 'UserBundle:Base:header.html.twig' %}
+{% include 'UserBundle:Register:signIn.html.twig' %}
+{% include 'UserBundle:Register:signUp.html.twig' %}
+<a href="../profile/{{ nickname }}">{{ nickname }} Profile</a>
+<div class="loader"></div>
+<h4>Les vidéos de {{ nickname }}</h4>
+{% if videos %}
+{% for video in videos %}
+    <ul>
+    <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
+    <li>
+        <a href="/watch/{{ video.youtubeId }}"><img
+                    src="http://img.youtube.com/vi/{{ video.youtubeId }}/mqdefault.jpg"
+                    alt="{{ video.youtubeId }}"></a></li>
+    <li>Posted on {{ video.videoDate.date|date("d/m/Y") }}</li>
+    <li>{{ video.description }}</li>
+    </ul>{% endfor %}
+{% else %}
+<p>{{ nickname }} n'a pas posté de vidéos</p>
+{% endif %}
+</body>
+</html>

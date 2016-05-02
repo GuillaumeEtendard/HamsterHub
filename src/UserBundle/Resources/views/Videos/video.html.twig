@@ -1,0 +1,26 @@
+{% include 'UserBundle:Base:head.html.twig' %}
+
+<body>
+{% include 'UserBundle:Base:header.html.twig' %}
+{% include 'UserBundle:Register:signIn.html.twig' %}
+{% include 'UserBundle:Register:signUp.html.twig' %}
+
+<div class="loader"></div>
+
+{% block video %}
+    {% for video in videos %}
+        <ul>
+            <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
+            <li>
+                <iframe width="560" height="315" src="{{ video.Url }}" frameborder="0" allowfullscreen></iframe>
+                <br>
+            </li>
+            <li>Posted by <a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a>
+                on {{ video.videoDate.date|date("d/m/Y") }}</li>
+            <li>{{ video.description }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

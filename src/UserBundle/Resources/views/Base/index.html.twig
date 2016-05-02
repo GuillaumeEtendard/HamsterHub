@@ -1,0 +1,15 @@
+{% include 'UserBundle:Base:head.html.twig' %}
+
+<body>
+{% include 'UserBundle:Base:header.html.twig' %}
+
+
+{% include 'UserBundle:Register:signIn.html.twig' %}
+{% include 'UserBundle:Register:signUp.html.twig' %}
+
+<div class="loader"></div>
+<!--undefined variable si rien dans la base de données-->
+{% include 'UserBundle:Videos:videos.html.twig' %}
+
+</body>
+</html>

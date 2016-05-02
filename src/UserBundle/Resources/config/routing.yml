@@ -1,3 +1,43 @@
 user_homepage:
     path:     /
-    defaults: { _controller: UserBundle:Default:index }
+    defaults: { _controller: UserBundle:User:index }
+user_signIn:
+    path:     /signIn
+    defaults: { _controller: UserBundle:User:signIn }
+user_signUp:
+    path:     /signUp
+    defaults: { _controller: UserBundle:User:signUp }
+user_logout:
+    path:     /logout
+    defaults: { _controller: UserBundle:User:logout }
+profile:
+    path:     /profile
+    defaults: { _controller: UserBundle:User:profile }
+
+user_profile:
+    path:     /profile/{nickname}
+    defaults: { _controller: UserBundle:User:userProfile }
+
+add_video:
+    path:    /addVideo
+    defaults: { _controller: UserBundle:Video:addVideo }
+
+edit_video:
+    path:    /editVideo
+    defaults: {_controller: UserBundle:Video:editVideo}
+
+delete_video:
+    path:    /deleteVideo/{id}
+    defaults: {_controller: UserBundle:Video:deleteVideo}
+
+my_videos_page:
+    path:    /myVideos
+    defaults: {_controller: UserBundle:Video:myVideo}
+
+user_video:
+    path:    /user/{nickname}
+    defaults: { _controller: UserBundle:Video:userVideo }
+
+video:
+    path:    /watch/{id}
+    defaults: { _controller: UserBundle:Video:video }

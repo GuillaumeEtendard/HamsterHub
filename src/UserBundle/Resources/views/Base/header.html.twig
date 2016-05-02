@@ -1,0 +1,19 @@
+{% block header %}
+<header>
+    <a href="../"><img src="{{ asset('assets/img/Hamster Hub Logo.svg') }}" class="hamsterHubLogo"></a>
+    {% if app.request.session.get("userId") is null %}
+        <button value="Sign In" name="signIn">
+            Sign In
+        </button>
+        <button value="Sign Up" name="signUp">
+            Sign Up
+        </button>
+    {% else %}
+        <a href="../profile">Profile</a><br>
+        <a href="../myVideos">My Vidéos</a>
+        <form name="logout" class="form" method="post" id="logout">
+            <input type="submit" class="button" value="Logout">
+        </form>
+    {% endif %}
+</header>
+{% endblock %}

@@ -1,0 +1,32 @@
+EntitiesBundle\Entity\Users:
+    type: entity
+    table: null
+    repositoryClass: EntitiesBundle\Repository\UsersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nickname:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        profileImageUrl:
+            type: string
+            length: 255
+        birthDate:
+            type: date
+
+    oneToMany:
+      features:
+        targetEntity: Users
+        mappedBy: id
+
+    lifecycleCallbacks: {  }

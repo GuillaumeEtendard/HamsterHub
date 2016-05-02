@@ -1,0 +1,21 @@
+{% include 'UserBundle:Base:head.html.twig' %}
+
+<body>
+{% include 'UserBundle:Base:header.html.twig' %}
+
+{% include 'UserBundle:Register:signIn.html.twig' %}
+{% include 'UserBundle:Register:signUp.html.twig' %}
+
+<a href="../user/{{ nickname }}">{{ nickname }} videos</a><br>
+
+<div class="loader"></div>
+
+{% block profile %}
+    Nickname : {{ nickname }}<br>
+    Email : {{ email }}<br>
+    Profile Image : <img src="../assets/uploads/{{ profileImageName }}" alt="{{ profileImageName }}"><br>
+    Birth Date : {{ birthDate|date('d-m-Y') }}
+{% endblock %}
+
+</body>
+</html>

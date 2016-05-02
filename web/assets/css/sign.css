@@ -1,0 +1,107 @@
+.signUpWindow {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    pointer-events: none;
+}/*faire générique signIn / signUp */
+.signInWindow {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    pointer-events: none;
+}
+
+.addVideoWindow {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    pointer-events: none;
+}
+
+.editVideoWindow {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    pointer-events: none;
+}
+
+.deleteVideoWindow {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    pointer-events: none;
+}
+.modal {
+    max-width: 300px;
+    position: relative;
+    margin: 1% auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: #eee;
+}
+
+/* Loader */
+.loader {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    background: url('http://www.cuisson.co.uk/templates/cuisson/supersize/slideshow/img/progress.BAK-FOURTH.gif') 50% 50% no-repeat;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: wait;
+}
+
+/*Errors Messages */
+
+
+.error {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.inputTxtError {
+    border: 1px solid #ff0000;
+    color: #0e0e0e;
+}
+.error {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.inputTxtError {
+    border: 1px solid #ff0000;
+    color: #0e0e0e;
+}
+input{
+    display: block;
+}

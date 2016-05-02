@@ -1,0 +1,13 @@
+{% block videos %}
+    {% for video in videos %}
+        <ul>
+            <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
+            <li>
+                <a href="/watch/{{ video.youtubeId }}"><img
+                            src="http://img.youtube.com/vi/{{ video.youtubeId }}/mqdefault.jpg"
+                            alt="{{ video.youtubeId }}"></a></li>
+            <li>Posted by <a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a> on {{ video.videoDate.date|date("d/m/Y") }}</li>
+            <li>{{ video.description }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}

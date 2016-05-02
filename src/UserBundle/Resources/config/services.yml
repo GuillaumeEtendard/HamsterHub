@@ -1,4 +1,30 @@
 services:
-#    user.example:
-#        class: UserBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    SignIn:
+        class: UserBundle\Services\SignIn
+        arguments: []
+    SignUp:
+        class: UserBundle\Services\SignUp
+        arguments: []
+    Profile:
+        class: UserBundle\Services\Profile
+    addVideo:
+        class: UserBundle\Services\AddVideo
+        arguments: []
+    editVideo:
+        class: UserBundle\Services\EditVideo
+        arguments: []
+    deleteVideo:
+        class: UserBundle\Services\DeleteVideo
+        arguments: []
+    homeVideo:
+        class: UserBundle\Services\HomeVideo
+        arguments: []
+    SignIn:
+        class: UserBundle\Services\SignIn
+        arguments: []
+    SignUp:
+        class: UserBundle\Services\SignUp
+        arguments: []
+    profile:
+        class: UserBundle\Services\Profile
+        arguments: []
