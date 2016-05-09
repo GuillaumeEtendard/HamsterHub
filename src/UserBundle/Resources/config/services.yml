@@ -28,3 +28,9 @@ services:
     profile:
         class: UserBundle\Services\Profile
         arguments: []
+    addComment:
+        class: UserBundle\Services\AddComment
+        arguments: []
+    deleteComment:
+        class: UserBundle\Services\DeleteComment
+        arguments: []

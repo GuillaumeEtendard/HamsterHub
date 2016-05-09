@@ -1,0 +1,167 @@
+<?php
+
+namespace EntitiesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commentaire
+ */
+class Commentaire
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $idUser;
+
+    /**
+     * @var string
+     */
+    private $idVideo;
+
+    /**
+     * @var string
+     */
+    private $content;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateCommenataire;
+
+    /**
+     * @var string
+     */
+    private $nickname;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idUser
+     *
+     * @param integer $idUser
+     * @return Commentaire
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * Get idUser
+     *
+     * @return integer 
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * Set idVideo
+     *
+     * @param string $idVideo
+     * @return Commentaire
+     */
+    public function setIdVideo($idVideo)
+    {
+        $this->idVideo = $idVideo;
+
+        return $this;
+    }
+
+    /**
+     * Get idVideo
+     *
+     * @return string 
+     */
+    public function getIdVideo()
+    {
+        return $this->idVideo;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Commentaire
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set dateCommenataire
+     *
+     * @param \DateTime $dateCommenataire
+     * @return Commentaire
+     */
+    public function setDateCommenataire($dateCommenataire)
+    {
+        $this->dateCommenataire = $dateCommenataire;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCommenataire
+     *
+     * @return \DateTime 
+     */
+    public function getDateCommenataire()
+    {
+        return $this->dateCommenataire;
+    }
+
+    /**
+     * Set nickname
+     *
+     * @param string $nickname
+     * @return Commentaire
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname
+     *
+     * @return string 
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
+}

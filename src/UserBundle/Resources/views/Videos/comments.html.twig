@@ -1,0 +1,18 @@
+{% block comments %}
+    {% for comment in comments %}
+        <div class="commentBlock">
+            <img class="commentUserImage" src="/assets/uploads/{{ video.usersId.profileImageUrl }}"
+                 alt="{{ video.usersId.profileImageUrl }}">
+            <div class="commentContentBlock">
+                <p>
+                    <a href="/user/{{ comment.nickname }}">{{ comment.nickname }}</a> {{ comment.commentDate.date|date("d/m/Y") }}
+                </p>
+                <p class="commentContent">{{ comment.content }}</p>
+            </div>
+            {% if app.request.session.get("userId") == comment.idUser %}
+                {% include 'UserBundle:Videos:deleteComment.html.twig' %}
+            {% elseif app.request.session.get("userId") == video.usersId.id %}
+                {% include 'UserBundle:Videos:deleteComment.html.twig' %}
+            {% endif %}</div>
+    {% endfor %}
+{% endblock %}

@@ -2,10 +2,9 @@
 
 namespace UserBundle\Services;
 
-
 class AddVideo
 {
-    public function addVideo($videoUrlVerification,$videoNameVerification)
+    public function addVideo($videoUrlVerification, $videoNameVerification)
     {
         $formOk = true;
         $errors = [];
@@ -27,7 +26,7 @@ class AddVideo
             $errors['videoUrl'] = 'Veuillez saisir une url valide';
             $formOk = false;
         }
-            if (!isset($_POST['videoName']) || strlen($_POST['videoName']) < 6) {
+        if (!isset($_POST['videoName']) || strlen($_POST['videoName']) < 6) {
             $errors['videoName'] = 'Veuillez saisir un nom de vidéo valide';
             $formOk = false;
         }

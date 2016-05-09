@@ -27,7 +27,7 @@ class UserController extends Controller
         if ($data['success'] == false) {
             return new JsonResponse($data, 400);
         } else {
-            $email = $_POST['email']; //VERIF WITH FILTER VAR EMAIL
+            $email = trim(htmlentities($_POST['email']));
             $salt = "s*m9J[,(m,8q{)@Fd_,K`cSw^Z3-x8,/6KY{'mb)`kEgErH=";
             $password = trim(htmlentities(sha1(sha1($_POST['password']) . $salt)));
 
@@ -48,7 +48,6 @@ class UserController extends Controller
             $session->start();
             $session->set('userId', $users[0]->getId());
             $session->get('userId');
-            //    $this->get('session')->set('userId', $users[0]->getId());
 
             return new JsonResponse($data, 200);
         }
@@ -68,12 +67,12 @@ class UserController extends Controller
             );
 
         $signUp = $this->container->get('SignUp');
-        $data = $signUp->SignUp($nicknameVerification, $emailVerification); //tab => tabGlobal dans service (tab erreur + boolean verif
+        $data = $signUp->SignUp($nicknameVerification, $emailVerification);
         if ($data['success'] == false) {
             return new JsonResponse($data, 400);
         } else {
             $nickname = trim(htmlentities($_POST['nickname']));
-            $email = $_POST['email']; //VERIF WITH FILTER VAR EMAIL
+            $email = trim(htmlentities($_POST['email']));
             $birthDate = $_POST['birthDate'];
             $salt = "s*m9J[,(m,8q{)@Fd_,K`cSw^Z3-x8,/6KY{'mb)`kEgErH=";
             $password = trim(htmlentities(sha1(sha1($_POST['password']) . $salt)));
@@ -131,6 +130,7 @@ class UserController extends Controller
             $birthDate = $usersInfos->getBirthdate();
             $profileImageName = $usersInfos->getProfileImageUrl();
         }
+
         return $this->render('UserBundle:User:profile.html.twig',
             array('nickname' => $nickname,
                 'email' => $email,

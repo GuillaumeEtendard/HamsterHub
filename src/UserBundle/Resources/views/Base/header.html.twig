@@ -1,19 +1,45 @@
 {% block header %}
-<header>
-    <a href="../"><img src="{{ asset('assets/img/Hamster Hub Logo.svg') }}" class="hamsterHubLogo"></a>
-    {% if app.request.session.get("userId") is null %}
-        <button value="Sign In" name="signIn">
-            Sign In
-        </button>
-        <button value="Sign Up" name="signUp">
-            Sign Up
-        </button>
-    {% else %}
-        <a href="../profile">Profile</a><br>
-        <a href="../myVideos">My Vidéos</a>
-        <form name="logout" class="form" method="post" id="logout">
-            <input type="submit" class="button" value="Logout">
-        </form>
-    {% endif %}
-</header>
+    <header class="header">
+    <span class="hamburgerMenu hamburgerMenuNoneActive">
+
+    </span>
+        <div class="subMenuHamburger">
+            {% if app.request.session.get("userId") is null %}
+                <button value="Sign In" name="signIn" class="button">
+                    Sign In
+                </button><br>
+                <button value="Sign Up" name="signUp" class="button">
+                    Sign Up
+                </button>
+            {% else %}
+                <p><a href="../profile">Profile</a></p>
+                <hr>
+                <p><a href="../myVideos">Mes Vidéos</a></p>
+                <hr>
+                <form name="logout" class="form" method="post" id="logout">
+                    <input type="submit" class="button" value="Logout">
+                </form>
+            {% endif %}
+        </div>
+        <a href="../"><img src="{{ asset('assets/img/HamsterHubLogo.svg') }}" class="hamsterHubLogo"
+                           alt="Hamster Hub Logo"></a>
+        <div class="subMenu">
+            {% if app.request.session.get("userId") is null %}
+                <button value="Sign In" name="signIn" class="button">
+                    Sign In
+                </button>
+                <button value="Sign Up" name="signUp" class="button">
+                    Sign Up
+                </button>
+            {% else %}
+                <p><a href="../profile">Profile</a></p>
+                <p><a href="../myVideos">Mes Vidéos</a></p>
+                <form name="logout" class="form" method="post" id="logout">
+                    <input type="submit" class="button" value="Logout">
+                </form>
+            {% endif %}
+        </div>
+        {% include 'UserBundle:Register:signIn.html.twig' %}
+        {% include 'UserBundle:Register:signUp.html.twig' %}
+    </header>
 {% endblock %}

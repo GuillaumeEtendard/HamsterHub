@@ -193,4 +193,32 @@ class Videos
     {
         return $this->video_date;
     }
+    /**
+     * @var string
+     */
+    private $video_views;
+
+
+    /**
+     * Set video_views
+     *
+     * @param string $videoViews
+     * @return Videos
+     */
+    public function setVideoViews($videoViews)
+    {
+        $this->video_views = $videoViews;
+
+        return $this;
+    }
+
+    /**
+     * Get video_views
+     *
+     * @return string 
+     */
+    public function getVideoViews()
+    {
+        return $this->video_views;
+    }
 }

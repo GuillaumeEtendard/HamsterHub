@@ -1,35 +1,35 @@
 {% block signUp %}
-<div class="signUpWindow">
-    <div class="modal">
-        <form name="signUp" class="form" method="POST" id="signUp" enctype="multipart/form-data">
-            <fieldset class="borderForm">
-                <p class="title"> Register </p>
-                <label class="labelNickname" for="nickname">Nickname</label><br>
-                <input type="text" id="nickname" name="nickname"><br>
+    <div class="signUpWindow modalWindow">
+        <div class="modal">
+            <form name="signUp" class="form" method="POST" id="signUp" enctype="multipart/form-data">
+                <fieldset class="borderForm">
+                    <p class="title"> Register </p>
+                    <label class="labelNickname" for="nickname">Nickname</label><br>
+                    <input type="text" id="nickname" name="nickname"><br>
 
-                <label class="labelEmail" for="email">Email Address</label><br>
-                <input type="email" id="email" name="email"><br>
+                    <label class="labelEmail" for="email">Email Address</label><br>
+                    <input type="email" id="email" name="email"><br>
 
-                <label class="labelBirthDate" for="birthDate">Birth Date</label><br>
-                <input type="date" id="birthDate" name="birthDate"><br>
+                    <label class="labelBirthDate" for="birthDate">Birth Date</label><br>
+                    <input type="date" id="birthDate" name="birthDate"><br>
 
-                <label class="labelProfileImage" for="profileImage">Profile Image</label><br>
-                <input type="file" id="profileImage" name="profileImage"><br>
+                    <label class="labelProfileImage" for="profileImage">Profile Image</label><br>
+                    <input type="file" id="profileImage" name="profileImage"><br>
 
-                <label class="labelPassword" for="password">Password</label><br>
-                <input type="password" id="password" name="password"><br>
+                    <label class="labelPassword" for="password">Password</label><br>
+                    <input type="password" id="password" name="password"><br>
 
-                <label class="labelPasswordVerification" for="passwordVerification">Password Verification</label><br>
-                <input type="password" id="passwordVerification" name="passwordVerification"><br>
+                    <label class="labelPasswordVerification" for="passwordVerification">Password Verification</label><br>
+                    <input type="password" id="passwordVerification" name="passwordVerification"><br>
 
-                <input type="submit" class="button" value="Register">
-                <p class="signUp">Need an account? <a href="#">Sign Up</a></p>
-                <p class="forgotPassword"><a href="#">Forgot your password ?</a></p>
-            </fieldset>
-        </form>
+                    <input type="submit" class="button" value="Register">
+                    <p class="signUp">Need an account? <a href="#">Sign Up</a></p>
+                    <p class="forgotPassword"><a href="#">Forgot your password ?</a></p>
+                </fieldset>
+            </form>
 
-        <a href="" class="close">X</a>
+            <div class="close"></div>
 
+        </div>
     </div>
-</div>
 {% endblock %}

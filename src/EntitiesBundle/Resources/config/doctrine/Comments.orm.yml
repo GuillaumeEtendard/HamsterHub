@@ -1,0 +1,27 @@
+EntitiesBundle\Entity\Comments:
+    type: entity
+    table: null
+    repositoryClass: EntitiesBundle\Repository\CommentsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        idVideo:
+            type: string
+            length: 255
+        content:
+            type: string
+            length: 255
+        commentDate:
+            type: date
+        nickname:
+            type: string
+            length: 255
+
+    lifecycleCallbacks: {  }

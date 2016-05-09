@@ -2,25 +2,23 @@
 
 namespace UserBundle\Services;
 
-
 class EditVideo
 {
-    public function editVideo($videoUrlVerification,$videoNameVerification/*,$videoUrlVerificationId, $videoNameVerificationId*/)
+    public function editVideo($videoUrlVerification, $videoNameVerification/*,$videoUrlVerificationId, $videoNameVerificationId*/)
     {
         $formOk = true;
         $errors = [];
 
-      /*  if($_POST['videoId'] != $videoUrlVerificationId){*/
-            if (!empty($videoUrlVerification)) {
-                $errors['videoUrl'] = 'Video is already upload';
-                $formOk = false;
-            }
-            if (!empty($videoNameVerification)) {
-                $errors['videoName'] = 'Video Name is already use';
-                $formOk = false;
-            }
-
-       /* }*/
+        /*  if($_POST['videoId'] != $videoUrlVerificationId){*/
+        if (!empty($videoUrlVerification)) {
+            $errors['videoUrl'] = 'Video is already upload';
+            $formOk = false;
+        }
+        if (!empty($videoNameVerification)) {
+            $errors['videoName'] = 'Video Name is already use';
+            $formOk = false;
+        }
+        /* }*/
         if (!isset($_POST['videoUrl']) || strlen($_POST['videoUrl']) < 4) {
             $errors['videoUrl'] = 'Veuillez saisir une url valide';
             $formOk = false;

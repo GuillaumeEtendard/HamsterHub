@@ -1,24 +1,23 @@
 {% block signIn %}
-<div class="signInWindow">
-    <div class="modal">
-        <form name="signIn" class="form" method="post" id="signIn">
-            <fieldset class="borderForm">
-                <p class="title"> Login </p>
-                <div class="emailInput">
-                    <label class="labelEmail" for="loginEmail">EMAIL ADDRESS</label><br>
-                    <input type="email" id="loginEmail" name="email"><br>
-                </div>
-                <div class="passwordInput">
-                    <label class="labelPassword" for="loginPassword">PASSWORD</label><br>
-                    <input type="password" id="loginPassword" name="password"><br>
-                </div>
-                <input type="submit" class="button" value="LOG IN">
-                <p class="signUp">Need an account? <a href="#">Sign Up</a></p>
-                <p class="forgotPassword"><a href="#">Forgot your password ?</a></p>
-            </fieldset>
-        </form>
-       <a href="" class="close">X</a>
-
+    <div class="signInWindow modalWindow">
+        <div class="modal">
+            <form name="signIn" class="form" method="post" id="signIn">
+                <fieldset class="borderForm">
+                    <p class="title"> Login </p>
+                    <div class="emailInput">
+                        <label class="labelEmail" for="loginEmail">EMAIL ADDRESS</label><br>
+                        <input type="email" id="loginEmail" name="email"><br>
+                    </div>
+                    <div class="passwordInput">
+                        <label class="labelPassword" for="loginPassword">PASSWORD</label><br>
+                        <input type="password" id="loginPassword" name="password"><br>
+                    </div>
+                    <input type="submit" class="button" value="LOG IN">
+                    <p class="signUp">Need an account? <a href="#">Sign Up</a></p>
+                    <p class="forgotPassword"><a href="#">Forgot your password ?</a></p>
+                </fieldset>
+            </form>
+            <div class="close"></div>
+        </div>
     </div>
-</div>
 {% endblock %}

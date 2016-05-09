@@ -1,13 +1,24 @@
 {% block videos %}
-    {% for video in videos %}
-        <ul>
-            <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
-            <li>
-                <a href="/watch/{{ video.youtubeId }}"><img
-                            src="http://img.youtube.com/vi/{{ video.youtubeId }}/mqdefault.jpg"
-                            alt="{{ video.youtubeId }}"></a></li>
-            <li>Posted by <a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a> on {{ video.videoDate.date|date("d/m/Y") }}</li>
-            <li>{{ video.description }}</li>
-        </ul>
-    {% endfor %}
+    {% if videos is defined %}
+        <section class="videos">
+        {% for video in videos %}
+            <article class="videosBlock">
+                <div>
+                    <a href="/watch/{{ video.youtubeId }}"><img class="imgYoutube"
+                                                                src="http://img.youtube.com/vi/{{ video.youtubeId }}/hqdefault.jpg"
+                                                                alt="{{ video.youtubeId }}"></a>
+                </div>
+                <h2>
+                    <a class="videosName" href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a>
+                </h2>
+                <div>
+                    <p><a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a></p>
+                </div>
+                <div>
+                    <p>{% if video.videoViews %}{{ video.videoViews }} views |{% endif %} {{ video.videoDate.date|date("d/m/Y") }}</p>
+                </div>
+            </article>
+        {% endfor %}
+        </section>
+    {% endif %}
 {% endblock %}

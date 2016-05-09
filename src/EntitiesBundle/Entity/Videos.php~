@@ -165,4 +165,32 @@ class Videos
     {
         return $this->users_id;
     }
+    /**
+     * @var \DateTime
+     */
+    private $video_date;
+
+
+    /**
+     * Set video_date
+     *
+     * @param \DateTime $videoDate
+     * @return Videos
+     */
+    public function setVideoDate($videoDate)
+    {
+        $this->video_date = $videoDate;
+
+        return $this;
+    }
+
+    /**
+     * Get video_date
+     *
+     * @return \DateTime 
+     */
+    public function getVideoDate()
+    {
+        return $this->video_date;
+    }
 }

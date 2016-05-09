@@ -26,6 +26,10 @@ EntitiesBundle\Entity\Videos:
         video_date:
             type: date
 
+        video_views:
+            type: string
+            length: 255
+
     manyToOne:
       users_id:
         targetEntity: Users

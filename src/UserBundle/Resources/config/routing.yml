@@ -41,3 +41,11 @@ user_video:
 video:
     path:    /watch/{id}
     defaults: { _controller: UserBundle:Video:video }
+
+page_commentaire:
+    path:   /addComment/{id}
+    defaults: {_controller: UserBundle:Video:addComment }
+
+delete_comment:
+    path:    /deleteComment/{id}
+    defaults: {_controller: UserBundle:Video:deleteComment}

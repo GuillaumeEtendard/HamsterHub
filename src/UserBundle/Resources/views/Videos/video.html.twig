@@ -1,26 +1,50 @@
 {% include 'UserBundle:Base:head.html.twig' %}
 
 <body>
-{% include 'UserBundle:Base:header.html.twig' %}
-{% include 'UserBundle:Register:signIn.html.twig' %}
-{% include 'UserBundle:Register:signUp.html.twig' %}
-
-<div class="loader"></div>
-
-{% block video %}
-    {% for video in videos %}
-        <ul>
-            <li><a href="/watch/{{ video.youtubeId }}">{{ video.videoName }}</a></li>
-            <li>
-                <iframe width="560" height="315" src="{{ video.Url }}" frameborder="0" allowfullscreen></iframe>
-                <br>
-            </li>
-            <li>Posted by <a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a>
-                on {{ video.videoDate.date|date("d/m/Y") }}</li>
-            <li>{{ video.description }}</li>
-        </ul>
-    {% endfor %}
-{% endblock %}
-
+<main role="main">
+    {% include 'UserBundle:Base:header.html.twig' %}
+    <div class="loader"></div>
+    <div class="container">
+        {% block video %}
+            {% for video in videos %}
+                <div class="videoBlock">
+                    <div class="iframe-responsive-wrapper">
+                        <img class="iframe-ratio"
+                             src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"/>
+                        <iframe src="{{ video.Url }}" width="640" height="360" allowFullScreen></iframe>
+                    </div>
+                    <div class="videoNameBlock">
+                        <p class="videoName">{{ video.videoName }}</p>
+                        <hr class="hidden">
+                        <div class="videoUserBlock">
+                            <img class="videoUserImage" src="/assets/uploads/{{ video.usersId.profileImageUrl }}"
+                                 alt="{{ video.usersId.profileImageUrl }}">
+                            <p class="videoUser">
+                                <a href="/user/{{ video.usersId.nickname }}">{{ video.usersId.nickname }}</a>
+                            </p>
+                            <p class="videoViews">
+                                {{ video.videoViews }} views
+                            </p>
+                        </div>
+                    </div>
+                    <div class="videoDescriptionBlock">
+                        <p class="videoDate">Add the {{ video.videoDate.date|date("d/m/Y") }}</p>
+                        <hr>
+                        <p class="videoDescription">{{ video.description }}</p>
+                    </div>
+                </div><br><br>
+                {% if app.request.session.get("userId") is null %}
+                    <p>Vous devez être connecter pour pouvoir commenter</p><br>
+                {% else %}
+                    <form name="addComment/{{ video.youtubeId }}" class="commentForm" method="post">
+                        <input type="text" name="commentary" placeholder="Comment here" class="commentInput">
+                        <input type="submit" value="Publish" class="button">
+                    </form>
+                {% endif %}<br><br>
+                {% include 'UserBundle:Videos:comments.html.twig' %}
+            {% endfor %}
+        {% endblock %}
+    </div>
+</main>
 </body>
 </html>

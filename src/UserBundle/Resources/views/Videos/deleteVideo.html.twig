@@ -1,25 +1,23 @@
 {% block deleteVideo %}
-    <button id="{{ video.id }}" name="delete{{ video.youtubeId }}" type="submit">
+    <button name="delete{{ video.youtubeId }}" type="submit">
         Delete Video
     </button>
-        <div class="deleteVideoWindow delete{{ video.youtubeId }}Window">
-            <div class="modal">
-                <form name="deleteVideo/{{ video.id }}" class="form" method="post">
-                    <fieldset class="borderForm">
-                        <p class="title"> Are you sure that you want to delete your video ? </p>
-                        <div class="videoNameInput">
-                            <label class="labelDelete" for="deleteYes">Yes</label><br>
-                            <input type="radio" name="videoName" value="Yes"><br>
-                        </div>
-                        <div class="nameInput">
-                            <label class="labelDelete" for="deleteNo">No</label><br>
-                            <input type="radio" name="videoName" value="No" onclick="location.reload()"><br>
-                        </div>
-                        <input type="hidden" name="videoId" value="{{ video.id }}">
-                        <input type="submit" class="button" value="DELETE VIDEO">
-                    </fieldset>
-                </form>
-                <a href="" class="close">X</a>
-            </div>
+    <div class="deleteVideoWindow delete{{ video.youtubeId }}Window modalWindow">
+        <div class="modal">
+            <form name="deleteVideo/{{ video.id }}" class="form" method="post">
+                <fieldset class="borderForm">
+                    <p class="title"> Are you sure that you want to delete your video ? </p>
+                    <div class="videoNameInput">
+                        <input type="radio" name="videoName" value="Yes">Yes<br>
+                    </div>
+                    <div class="nameInput">
+                        <input type="radio" name="videoName" value="No" onclick="location.reload()">No<br>
+                    </div>
+                    <input type="hidden" name="videoId" value="{{ video.id }}">
+                    <input type="submit" class="button" value="DELETE VIDEO">
+                </fieldset>
+            </form>
+            <div class="close"></div>
         </div>
+    </div>
 {% endblock %}

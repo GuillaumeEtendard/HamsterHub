@@ -4,6 +4,8 @@ namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use UserBundle\Services\AddVideo;
+use EntitiesBundle\Entity\Comments;
+use EntitiesBundle\Entity\Users;
 use EntitiesBundle\Entity\Videos;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,61 +14,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class VideoController extends Controller
 {
-    /*public function addVideoAction(Request $request)
-    {
 
-        $session = $request->getSession();
-        $idUserConnected = $session->get('userId');
-
-
-        $em = $this->getDoctrine()->getManager();
-        $userConnected = $this->getDoctrine()
-            ->getRepository('EntitiesBundle:Users')
-            ->findBy(array('id' => $idUserConnected));
-
-        $addVideoServices = $this->container->get('addVideo');
-        $resAddVideoServices = $addVideoServices->addVideo();
-
-        //validate format youtube URL avant ....
-        $url = $resAddVideoServices;
-        $test_url = preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
-
-        // test_url = 1 true || 0 == false
-
-        foreach ($userConnected as $objectUserConnected) {
-            $idUser = $objectUserConnected->getId();
-            $nicknameUser = $objectUserConnected->getNickname();
-        }
-
-        if ($resAddVideoServices == "error" || $test_url == 0) {
-            $resAddVideoServices = "";
-            $msgError = "url vide ou format youtube invalide, réessayer !";
-
-        } elseif ($resAddVideoServices != "error" || $test_url == 1) {
-            $embed = explode("watch?v=", $resAddVideoServices);
-            $videoEmbed = implode('embed/', $embed);
-            $videosUrl = $videoEmbed;
-            $youtubeId = $embed[1];
-            $newVideo = new Videos();
-            $newVideo->setYoutubeId($youtubeId);
-            $newVideo->setDescription($_POST['description']);
-            $newVideo->setVideoName($_POST['video_name']);
-            $newVideo->setUrl($videosUrl); // url rentrer par l'utilisateur
-            $newVideo->setUsersId($objectUserConnected);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($newVideo);
-            $em->flush();
-
-            $msgError = "";
-        }
-
-        return $this->render('UserBundle:Videos:addVideo.html.twig', array('url' => $resAddVideoServices, 'msgError' => $msgError));
-    }*/
     public function addVideoAction(Request $request)
     {
         $session = $request->getSession();
         $idUserConnected = $session->get('userId');
-
 
         $em = $this->getDoctrine()->getManager();
         $userConnected = $this->getDoctrine()
@@ -94,7 +46,6 @@ class VideoController extends Controller
             ->getRepository('EntitiesBundle:Videos')
             ->findBy(array('video_name' => $videoName));
 
-
         $addVideo = $this->container->get('addVideo');
         $data = $addVideo->addVideo($videoUrlVerification, $videoNameVerification);
 
@@ -111,7 +62,7 @@ class VideoController extends Controller
             $newVideo->setUrl($videosUrl);
             $newVideo->setDescription($videoDescription);
             $newVideo->setUsersId($objectUserConnected);
-
+            $newVideo->setVideoViews(0);
             $em = $this->getDoctrine()->getManager();
             $em->persist($newVideo);
             $em->flush();
@@ -123,7 +74,6 @@ class VideoController extends Controller
     {
         $session = $request->getSession();
         $idUserConnected = $session->get('userId');
-
 
         $em = $this->getDoctrine()->getManager();
         $userConnected = $this->getDoctrine()
@@ -150,14 +100,6 @@ class VideoController extends Controller
         $videosNameVerification = $this->getDoctrine()
             ->getRepository('EntitiesBundle:Videos')
             ->findBy(array('video_name' => $videoName));
-/*
-        foreach ($videosNameVerification as $videoNameVerification) {
-            $videoNameVerificationId = $videoNameVerification->getId();
-        }
-
-        foreach ($videosUrlVerification as $videoUrlVerification) {
-            $videoUrlVerificationId = $videoUrlVerification->getId();
-        }*/
 
         $editVideo = $this->container->get('editVideo');
         $data = $editVideo->editVideo($videosUrlVerification, $videosNameVerification/*,$videoUrlVerificationId, $videoNameVerificationId*/);
@@ -192,7 +134,7 @@ class VideoController extends Controller
         }
 
         $deleteVideo = $this->container->get('deleteVideo');
-        $data = $deleteVideo->deleteVideo($id);
+        $data = $deleteVideo->deleteVideo();
 
         if ($data['success'] == false) {
             return new JsonResponse($data, 400);
@@ -206,6 +148,16 @@ class VideoController extends Controller
             $em->remove($video[0]);
             $em->flush();
 
+            foreach($video as $value){
+                $youtubeIdVideos[] = $value->getYoutubeId();
+            }
+            $comments = $this->getDoctrine()
+                ->getRepository('EntitiesBundle:Comments')
+                ->findBy(array('idVideo' => $youtubeIdVideos));
+            foreach($comments as $comment){
+                $em->remove($comment);
+            }
+            $em->flush();
             return new JsonResponse($data, 200);
         }
     }
@@ -252,19 +204,92 @@ class VideoController extends Controller
             $myUser_id = $objetUser->getUsersId();
         }
         if (!isset($usersId) || !$usersId) {
-            $myUrl = 'No video';
-            return $this->render('UserBundle:Videos:userVideo.html.twig', array('allURL' => $myUrl));
+            return $this->render('UserBundle:Videos:userVideo.html.twig');
         }
         return $this->render('UserBundle:Videos:userVideo.html.twig', array('videos' => $userConnected, 'nickname' => $nickname));
     }
 
     public function videoAction($id)
     {
+
         $em = $this->getDoctrine()->getManager();
         $videos = $this->getDoctrine()
             ->getRepository('EntitiesBundle:Videos')
             ->findBy(array('youtube_id' => $id));
 
-        return $this->render('UserBundle:Videos:video.html.twig', array('videos' => $videos));
+        foreach ($videos as $video) {
+            $videosViews[] = $video->getVideoViews();
+        }
+
+        $videoViews = $videosViews[0] + 1;
+
+        $em = $this->getDoctrine()->getManager();
+        $videosAddView = $em->getRepository('EntitiesBundle:Videos')
+            ->findBy(array('youtube_id' => $id));
+
+        $videosAddView[0]->setVideoViews($videoViews);
+
+        $em->flush();
+
+        $em = $this->getDoctrine()->getManager();
+        $comments = $this->getDoctrine()
+            ->getRepository('EntitiesBundle:Comments')
+            ->findBy(array('idVideo' => $id), array('id' => 'desc'));
+
+        return $this->render('UserBundle:Videos:video.html.twig', array('videos' => $videos, 'comments' => $comments));
     }
+
+    public function addCommentAction($id, Request $request)
+    {
+
+        $session = $request->getSession();
+        $idUserConnected = $session->get('userId');
+
+        $addCommentary = $this->container->get('addComment');
+        $data = $addCommentary->addComment();
+        if ($data['success'] == false) {
+            return new JsonResponse($data, 400);
+        } else {
+            $comment = trim(htmlentities($_POST['commentary']));
+            $commentAdd = new Comments();
+
+            $em = $this->getDoctrine()->getManager();
+            $nicknames = $this->getDoctrine()
+                ->getRepository('EntitiesBundle:Users')
+                ->findBy(array('id' => $idUserConnected));
+            $nickname = $nicknames[0]->getNickname();
+
+            $commentAdd->setContent($comment);
+            $commentAdd->setIdUser($idUserConnected);
+            $commentAdd->setIdVideo($id);
+            $commentAdd->setNickname($nickname);
+            $commentAdd->setCommentDate(new \DateTime());
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commentAdd);
+            $em->flush();
+
+            return new JsonResponse($data, 200);
+        }
+    }
+
+    public function deleteCommentAction($id)
+    {
+        $deleteComment = $this->container->get('deleteComment');
+        $data = $deleteComment->deleteComment();
+
+        if ($data['success'] == false) {
+            return new JsonResponse($data, 400);
+        } else {
+            $em = $this->getDoctrine()->getManager();
+            $commentToDelete = $this->getDoctrine()
+                ->getRepository('EntitiesBundle:Comments')
+                ->findBy(array('id' => $id));;
+            $em->remove($commentToDelete[0]);
+            $em->flush();
+
+            return new JsonResponse($data, 200);
+        }
+    }
+
 }

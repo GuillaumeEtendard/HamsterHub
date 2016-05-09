@@ -2,20 +2,20 @@
 
 namespace UserBundle\Services;
 
-class DeleteVideo
+class DeleteComment
 {
-    public function deleteVideo()
+    public function deleteComment()
     {
         $formOk = true;
         $errors = [];
 
-        if (!isset($_POST['videoName']) || !$_POST['videoName']) {
-            $errors['videoName'] = 'Veuillez saisir une réponse';
+        if (!isset($_POST['commentAnswer']) || !$_POST['commentAnswer']) {
+            $errors['commentAnswer'] = 'Veuillez saisir une réponse';
             $formOk = false;
         }
-        if (isset($_POST['videoName'])) {
-            if ($_POST['videoName'] == 'No') {
-                $errors['videoName'] = 'No';
+        if (isset($_POST['commentAnswer'])) {
+            if ($_POST['commentAnswer'] == 'No') {
+                $errors['commentAnswer'] = 'No';
                 $formOk = false;
             }
         }

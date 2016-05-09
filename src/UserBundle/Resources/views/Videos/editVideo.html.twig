@@ -1,29 +1,26 @@
 {% block editVideo %}
-    <button id="{{ video.id }}" name="edit{{ video.youtubeId }}" type="submit">
+    <button name="edit{{ video.youtubeId }}" type="submit">
         Edit Video
     </button>
-    <div class="editVideoWindow edit{{ video.youtubeId }}Window">
+    <div class="editVideoWindow edit{{ video.youtubeId }}Window modalWindow">
         <div class="modal">
             <form name="editVideo" class="form" method="post">
                 <fieldset class="borderForm">
                     <p class="title"> Edit Video : {{ video.videoName }} </p>
                     <div class="linkInput">
-                        <label class="labelLink" for="link">LINK</label><br>
                         <input type="url" name="videoUrl" value="https://www.youtube.com/watch?v={{ video.youtubeId }}"><br>
                     </div>
                     <div class="videoNameInput">
-                        <label class="labelVideoName" for="videoName">Video Name</label><br>
                         <input type="text" name="videoName" value="{{ video.videoName }}"><br>
                     </div>
                     <div class="nameInput">
-                        <label class="labelName" for="videoDescription">Description</label><br>
                         <input type="text" name="videoDescription" value="{{ video.description }}"><br><br>
                     </div>
                     <input type="hidden" name="videoId" value="{{ video.id }}">
                     <input type="submit" class="button" value="EDIT VIDEO">
                 </fieldset>
             </form>
-            <a href="" class="close">X</a>
+            <div class="close"></div>
         </div>
     </div>
 {% endblock %}
