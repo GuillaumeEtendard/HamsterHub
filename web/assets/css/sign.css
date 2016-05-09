@@ -11,6 +11,7 @@ input[type="file"]{
 
 .logoutInput{
     display: inline-block;
+    vertical-align: 3px;
 }
 .logoutSubMenuInput{
     margin: 0 auto!important;
@@ -130,7 +131,7 @@ input[type="file"]{
     display: none;
     position: fixed;
     z-index: 9999;
-    background: url('http://www.cuisson.co.uk/templates/cuisson/supersize/slideshow/img/progress.BAK-FOURTH.gif') 50% 50% no-repeat;
+    background: url('/assets/img/loadingBar.gif') 50% 50% no-repeat;
     top: 0;
     left: 0;
     height: 100%;
