@@ -1,8 +1,6 @@
 window.onload = function () {
     var button = $('button');
     button.click(function () {
-        console.log(this.name+'Window');
-
         var window = document.querySelectorAll("." + this.name + "Window");
         var modal = document.querySelectorAll(".modal");
 
@@ -33,5 +31,8 @@ window.onload = function () {
     });
     close.click(function () {
         $('.deleteVideoWindow').css('display', 'none');
+    });
+    close.click(function () {
+        $('.deleteCommentWindow').css('display', 'none');
     });
 };

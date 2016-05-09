@@ -4,11 +4,7 @@ $(function () {
         var formdata = (window.FormData) ? new FormData($form[0]) : null;
         var data = (formdata !== null) ? formdata : $form.serialize();
 
-        var signInWindow = $(".signInWindow");
-        var signUpWindow = $(".signUpWindow");
-        var addVideoWindow = $(".addVideoWindow");
-        var editVideoWindow = $(".editVideoWindow");
-        var deleteVideoWindow = $(".deleteVideoWindow");
+        var modalWindow = $(".modalWindow");
         var loader = $(".loader");
 
         $.ajax({
@@ -20,13 +16,9 @@ $(function () {
             processData: false,
 
             success: function (data) {
-                document.location.href = "/";
+                location.reload();
                 loader.css('display', 'block');
-                signInWindow.css('visibility', 'hidden');
-                signUpWindow.css('visibility', 'hidden');
-                addVideoWindow.css('visibility', 'hidden');
-                editVideoWindow.css('visibility', 'hidden');
-                deleteVideoWindow.css('visibility', 'hidden');
+                modalWindow.css('visibility', 'hidden');
             },
 
             error: function (data, status, error) {
@@ -38,8 +30,6 @@ $(function () {
                     var msg = '<label class="error" for="'+i+'">'+v+'</label>';
                     $('input[name="' + i + '"], select[name="' + i + '"]').addClass('inputTxtError').after(msg);
                 });
-               // var keys = Object.keys(data.errors);
-               // $('input[name="'+keys[0]+'"]').focus();
             }
         });
         return false;

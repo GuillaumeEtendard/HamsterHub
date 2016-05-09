@@ -1,0 +1,256 @@
+/* Main */
+.hamsterHubLogo {
+    width: 250px;
+    position: absolute;
+    top: 12px;
+}
+
+iframe {
+    border: none;
+}
+
+main {
+    margin: 8px;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+.hidden{
+    visibility: hidden;
+}
+/* Header */
+
+.hamburgerMenu {
+    display: inline-block;
+    width: 50px;
+    height: 66px;
+}
+
+.hamburgerMenu:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 16px;
+    height: 0;
+    margin-top: 16px;
+    margin-left: 15px;
+    box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black;
+}
+
+.subMenuHamburger {
+    display: none;
+    height: auto;
+    position: fixed;
+    background-color: #FFF;
+    font-size: 100%;
+    left: 0;
+    margin-top: 70px;
+    z-index: 1;
+    padding: 5% 10%;
+    line-height: 30px;
+    -webkit-box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+}
+
+.subMenu {
+    display: none;
+}
+
+/* Vidéo */
+.videoNameBlock .videoName {
+    font-size: 150%;
+    font-weight: normal;
+    line-height: normal;
+    word-wrap: break-word;
+    text-align: left;
+    position: relative;
+    top: 0;
+    color: #000000;
+}
+
+.video {
+    background-color: #EEEEEE;
+    text-align: center;
+    margin: 0;
+}
+
+.videoUserBlock .videoUser {
+    vertical-align: middle;
+    line-height: 40px;
+    margin-top: -32px;
+    display: inline-block;
+}
+
+.videoNameBlock {
+    padding: 3%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    margin: 5% 0;
+    box-sizing: border-box;
+}
+
+.videoBlock .videoDescriptionBlock {
+    padding: 3%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    margin: 5% 0;
+    box-sizing: border-box;
+}
+
+.videoDescriptionBlock .videoDate {
+    font-size: 80%;
+    line-height: 17px;
+}
+
+.videoNameBlock .videoUserImage {
+    max-width: 40px;
+    height: auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+
+.videoDescriptionBlock .videoDescription {
+    line-height: 17px;
+    color: rgba(0, 0, 0, 0.69);
+}
+
+.videoViews{
+    text-align: right;
+}
+
+/* Comments */
+.commentInput{
+    margin: 0;
+}
+
+.commentForm input[type="text"]{
+    width: 100%;
+    height:50px;
+}
+
+.commentUserImage{
+    width: 40px;
+    display: inline-block;
+}
+
+.commentContentBlock{
+    display: inline-block;
+    margin-bottom: 50px;
+    vertical-align: top;
+}
+.commentBlock button{
+    vertical-align: top;
+}
+.commentBlock a{
+    color: #1e90ff;
+}
+
+
+/* Vidéos */
+.imgYoutube {
+    max-width: 100%;
+    height: auto;
+}
+
+.videosBlock{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.videos{
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+.videos .videosName{
+    color: #1e90ff;
+}
+
+/* Vidéo iframe */
+.iframe-responsive-wrapper {
+    position: relative;
+    max-height: 720px;
+}
+
+.iframe-responsive-wrapper .iframe-ratio {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.iframe-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 720px) {
+
+    .subMenu {
+        display: inline-block;
+        float: right;
+        vertical-align: middle;
+    }
+    .subMenu p {
+        display: inline;
+    }
+    .subMenu form{
+        display: inline;
+    }
+    .hamburgerMenu {
+        display: none;
+    }
+
+    header{
+        height:60px;
+        margin: 8px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    main{
+        max-width: 100%;
+    }
+    .container {
+        margin: auto 10%;
+        max-width: 1280px;
+    }
+    .videoNameBlock .videoUserImage {
+        max-width: 10%;
+        height: auto;
+    }
+
+    .videoUserImage{
+        width: 60px;
+    }
+
+    .videoUserBlock .videoUser {
+        vertical-align: middle;
+        height: 60px;
+        display: inline-block;
+    }
+
+    .videoNameBlock{
+        padding: 2%;
+        margin: 2% 0;
+    }
+    .videoBlock .videoDescriptionBlock {
+        padding: 1%;
+        margin: 1% 0;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container{
+        margin: 0 auto;
+    }
+}
