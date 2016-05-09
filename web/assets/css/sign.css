@@ -4,11 +4,18 @@ input{
     border-radius: 5px;
     border: 1px solid black;
     background: ghostwhite;
-    height: 25px;
 }
 input[type="file"]{
     padding-top: 4px;
 }
+
+.logoutInput{
+    display: inline-block;
+}
+.logoutSubMenuInput{
+    margin: 0 auto!important;
+}
+
 .modalWindow {
     position: fixed;
     z-index: 99999;
@@ -27,7 +34,7 @@ input[type="file"]{
     margin: 1% auto;
     padding: 20px;
     border-radius: 5px;
-    background: whitesmoke;
+    background: rgb(255, 255, 255);
     text-align: center;
     box-shadow:  0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -54,6 +61,7 @@ input[type="file"]{
     width: 32px;
     height: 32px;
     opacity: 0.3;
+    cursor: pointer;
 }
 
 .close:hover {
@@ -79,18 +87,20 @@ input[type="file"]{
 }
 
 .button {
-    background: lightgrey;
-    border: none;
-    border-radius: 4px;
-    height: 25px;
-    font-size: 16px;
-    width: 120px;
-    color: black;
+    border: 2px solid #f35626;
+    line-height: 1.375;
     font-weight: 700;
+    color: #f35626;
+    cursor: pointer;
+    padding: 0.5em;
+    margin: .375rem;
+    background-color: transparent;
+    border-radius: 4px;
 }
 
 .button:hover {
-    background: darkgrey;
+    background: #ff0000;
+    color: #eeeeee;
     transition: 0.4s;
 }
 
@@ -102,11 +112,16 @@ input[type="file"]{
 }
 
 .title {
-    font-size: 22px;
+    font-size: 140%;
     color: black;
     font-weight: bold;
     border-bottom: 1px black solid;
-    width: 40%;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.deleteVideoTitle{
+    color:#e74c3c;
 }
 
 
@@ -128,7 +143,7 @@ input[type="file"]{
 
 .error {
     color: #ff0000;
-    font-size: 12px;
+    font-size: 80%;
     margin-top: 5px;
     margin-bottom: 0;
 }
@@ -138,7 +153,7 @@ input[type="file"]{
 }
 .error {
     color: #ff0000;
-    font-size: 12px;
+    font-size: 80%;
     margin-top: 5px;
     margin-bottom: 0;
 }
@@ -147,4 +162,18 @@ input[type="file"]{
     margin: 1px;
     border: 1px solid #ff0000;
     color: #0e0e0e;
+}
+
+.labelAnswer{
+    vertical-align: super;
+}
+.inputAnswer{
+    width: 15%!important;
+    display: inline-block;
+}
+
+@media screen and (min-width: 720px) {
+    .button{
+        padding: .75rem;
+    }
 }

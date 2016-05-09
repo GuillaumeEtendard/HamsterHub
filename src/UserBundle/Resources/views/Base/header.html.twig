@@ -12,12 +12,12 @@
                     Sign Up
                 </button>
             {% else %}
-                <p><a href="../profile">Profile</a></p>
+                <a class="button" href="../profile">Profile</a>
                 <hr>
-                <p><a href="../myVideos">Mes Vidéos</a></p>
+                <a class="button" href="../myVideos">Mes Vidéos</a>
                 <hr>
                 <form name="logout" class="form" method="post" id="logout">
-                    <input type="submit" class="button" value="Logout">
+                    <input type="submit" class="button logoutSubMenuInput" value="Logout">
                 </form>
             {% endif %}
         </div>
@@ -32,10 +32,10 @@
                     Sign Up
                 </button>
             {% else %}
-                <p><a href="../profile">Profile</a></p>
-                <p><a href="../myVideos">Mes Vidéos</a></p>
+                <a class="button" href="../profile">Profile</a>
+                <a class="button" href="../myVideos">Mes Vidéos</a>
                 <form name="logout" class="form" method="post" id="logout">
-                    <input type="submit" class="button" value="Logout">
+                    <input type="submit" class="button logoutInput" value="Logout">
                 </form>
             {% endif %}
         </div>

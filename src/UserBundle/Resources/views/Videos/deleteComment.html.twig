@@ -1,19 +1,19 @@
 {% block deleteComment %}
-    <button name="delete{{ comment.id }}" type="submit">
+    <button name="delete{{ comment.id }}" type="submit" class="button">
         X
     </button>
     <div class="deleteCommentWindow delete{{ comment.id }}Window modalWindow">
         <div class="modal">
             <form name="deleteComment/{{ comment.id }}" class="form" method="post">
                 <fieldset class="borderForm">
-                    <p class="title"> Are you sure that you want to delete your comment ? </p>
+                    <p class="title">Delete Comment ?</p>
                     <div class="commentAnswerInput">
-                        <label for="comment{{ comment.id }}Yes">Yes</label>
-                        <input type="radio" name="commentAnswer" value="Yes" id="comment{{ comment.id }}Yes"><br>
+                        <label class="labelAnswer" for="comment{{ comment.id }}Yes">Yes</label>
+                        <input class="inputAnswer" type="radio" name="commentAnswer" value="Yes" id="comment{{ comment.id }}Yes"><br>
                     </div>
                     <div class="commentAnswerInput">
-                        <label for="comment{{ comment.id }}No">No</label>
-                        <input type="radio" name="commentAnswer" value="No" onclick="location.reload()" id="comment{{ comment.id }}No"><br>
+                        <label class="labelAnswer" for="comment{{ comment.id }}No">No</label>
+                        <input type="radio" class="inputAnswer" name="commentAnswer" value="No" onclick="location.reload()" id="comment{{ comment.id }}No"><br>
                     </div>
                     <input type="hidden" name="commentId" value="{{ comment.id }}">
                     <input type="submit" class="button" value="DELETE COMMENT">

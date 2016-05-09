@@ -44,6 +44,7 @@ a:hover{
 }
 
 .subMenuHamburger {
+    text-align: center;
     display: none;
     height: auto;
     position: fixed;
@@ -124,6 +125,7 @@ a:hover{
 }
 
 /* Comments */
+
 .commentInput{
     margin: 0;
 }
@@ -150,6 +152,10 @@ a:hover{
     color: #1e90ff;
 }
 
+.commentContent{
+    margin-top: 3px;
+}
+
 
 /* Vidéos */
 .imgYoutube {
@@ -172,6 +178,13 @@ a:hover{
     color: #1e90ff;
 }
 
+.goToVideo{
+    font-size: 110%;
+}
+.h4Title{
+    font-size: 130%;
+    text-align: center;
+}
 /* Vidéo iframe */
 .iframe-responsive-wrapper {
     position: relative;
@@ -214,6 +227,8 @@ a:hover{
         margin: 8px;
     }
 }
+
+
 
 @media screen and (min-width: 1024px) {
 

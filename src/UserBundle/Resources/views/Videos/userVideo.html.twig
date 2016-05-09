@@ -5,9 +5,9 @@
     {% include 'UserBundle:Base:header.html.twig' %}
     <br>
     <br>
-    <a class="goToVideo" href="../profile/{{ nickname }}">Retourner sur le profile de {{ nickname }}</a><br><br>
+    <a class="goToVideo" href="../profile/{{ nickname }}">Show {{ nickname }} profile</a><br><br>
     <div class="loader"></div>
-    <h4>Les vidéos de {{ nickname }}</h4><br><br>
+    <h4 class="h4Title">Les vidéos de {{ nickname }}</h4><br><br>
     {% if videos %}
         {% include 'UserBundle:Videos:videos.html.twig' %}
     {% else %}
