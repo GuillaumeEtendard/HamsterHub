@@ -5,13 +5,13 @@
     {% include 'UserBundle:Base:header.html.twig' %}
     {% include 'UserBundle:Base:menu.html.twig' %}
     <div class="container">
-        <a class="goToVideo" href="../profile/{{ nickname }}">Show {{ nickname }} profile</a><br><br>
+        <a class="goToVideo" href="../profile/{{ nickname }}">Voir le profil de {{ nickname }}</a><br><br>
         <div class="loader"></div>
         <h4 class="h4Title">Les vidéos de {{ nickname }}</h4><br><br>
         {% if videos %}
             {% include 'UserBundle:Videos:videos.html.twig' %}
         {% else %}
-            <p>{{ nickname }} n'a pas posté de vidéos !</p>
+            <p>{{ nickname }} n'a pas posté de vidéos</p>
         {% endif %}
     </div>
     {% include 'UserBundle:Base:footer.html.twig' %}

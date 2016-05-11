@@ -9,14 +9,15 @@
         <div class="loader"></div>
         {% block profile %}
         <div class="data-profile">
-            <h1>Profile</h1>
-            <div class="profile-pic"> <img src="../assets/uploads/{{ profileImageName }}"
-                                           alt="Profile Image">
-            </div>
+            <h1>Profil</h1>
             <div class="infoContainer">
                 <p>Pseudo <br>{{ nickname }}</p><br>
                 <p>Email <br>{{ email }}</p><br>
                 <p>Date de naissance <br>{{ birthDate|date('d-m-Y') }}</p>
+            </div>
+            <div class="profile-pic">
+                <p>Image de Profil</p><br><img src="../assets/uploads/{{ profileImageName }}"
+                                           alt="Profile Image">
             </div>
         </div>
     </div>
