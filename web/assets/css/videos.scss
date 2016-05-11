@@ -1,0 +1,28 @@
+.imgYoutube {
+  max-width: 100%;
+  height: auto;
+}
+
+.videosBlock{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.videos{
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  padding: 20px;
+}
+
+.videos .videosName{
+  color: $videosNameColor;
+}
+
+.goToVideo{
+  font-size: $videosLinkSize;
+}
+.h4Title{
+  font-size: $videosTitleSize;
+  text-align: center;
+}

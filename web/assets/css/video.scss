@@ -1,0 +1,105 @@
+.videoNameBlock .videoName {
+  font-size: $videoNameSize;
+  font-weight: normal;
+  line-height: normal;
+  word-wrap: break-word;
+  text-align: left;
+  position: relative;
+  top: 0;
+  color: $videoNameColor;
+}
+
+.video {
+  background-color: $backgroundColorVideo;
+  text-align: center;
+  margin: 0;
+}
+
+.videoUserBlock .videoUser {
+  vertical-align: middle;
+  line-height: 40px;
+  margin-top: -32px;
+  display: inline-block;
+}
+
+.videoNameBlock {
+  padding: 3%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  margin: 5% 0;
+  box-sizing: border-box;
+}
+
+.videoBlock .videoDescriptionBlock {
+  padding: 3%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  margin: 5% 0;
+  box-sizing: border-box;
+}
+
+.videoDescriptionBlock .videoDate {
+  font-size: $videoDateSize;
+  line-height: 17px;
+}
+
+.videoNameBlock .videoUserImage {
+  max-width: 40px;
+  height: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+
+.videoDescriptionBlock .videoDescription {
+  line-height: 17px;
+  color: rgba(0, 0, 0, 0.69);
+}
+
+.videoViews{
+  text-align: right;
+}
+
+.iframe-responsive-wrapper {
+  position: relative;
+  max-height: 720px;
+}
+
+.iframe-responsive-wrapper .iframe-ratio {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.iframe-responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+
+
+  .videoNameBlock .videoUserImage {
+    max-width: 10%;
+    height: auto;
+  }
+
+  .videoUserImage{
+    width: 60px;
+  }
+
+  .videoUserBlock .videoUser {
+    vertical-align: middle;
+    height: 60px;
+    display: inline-block;
+  }
+
+  .videoNameBlock{
+    padding: 2%;
+    margin: 2% 0;
+  }
+  .videoBlock .videoDescriptionBlock {
+    padding: 1%;
+    margin: 1% 0;
+  }
+}

@@ -1,0 +1,71 @@
+.header{
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top:0;
+  left:0;
+}
+
+
+.hamburgerMenu {
+  display: inline-block;
+  width: 50px;
+  height: 66px;
+}
+
+.hamburgerMenu:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 0;
+  margin-top: 16px;
+  margin-left: 15px;
+  box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black;
+}
+
+.subMenuHamburger {
+  text-align: center;
+  display: none;
+  height: auto;
+  position: fixed;
+  background-color: $backgroundSubMenuHamburger;
+  font-size: $subMenuHamburgerFontSize;
+  left: 0;
+  margin-top: 70px;
+  z-index: 1;
+  padding: 5% 10%;
+  line-height: 30px;
+  -webkit-box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 9px 15px -5px rgba(0, 0, 0, 0.75);
+}
+.subMenuHamburger hr{
+  margin: 20px auto;
+}
+.subMenu {
+  display: none;
+}
+
+@media screen and (min-width: 720px) {
+
+  .subMenu {
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+  }
+  .subMenu p {
+    display: inline;
+  }
+  .subMenu form {
+    display: inline;
+  }
+  .hamburgerMenu {
+    display: none;
+  }
+
+  header {
+    height: 60px;
+    margin: 8px;
+  }
+}

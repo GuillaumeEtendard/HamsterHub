@@ -1,0 +1,29 @@
+.commentInput{
+  margin: 0;
+}
+
+.commentForm input[type="text"]{
+  width: 100%;
+  height:50px;
+}
+
+.commentUserImage{
+  width: 40px;
+  display: inline-block;
+}
+
+.commentContentBlock{
+  display: inline-block;
+  margin-bottom: 50px;
+  vertical-align: top;
+}
+.commentBlock button{
+  vertical-align: top;
+}
+.commentBlock a{
+  color: $commentLink;
+}
+
+.commentContent{
+  margin-top: 3px;
+}

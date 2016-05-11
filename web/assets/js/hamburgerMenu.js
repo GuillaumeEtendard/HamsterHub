@@ -8,5 +8,4 @@ $(function () {
             subMenuHamburger.css('display', 'inline-block');
         }
     });
-
 });

@@ -1,0 +1,182 @@
+input{
+  display: block;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background: ghostwhite;
+  height:25px;
+}
+input[type="file"]{
+  padding-top: 4px;
+}
+
+.logoutInput{
+  display: inline-block;
+  vertical-align: 3px;
+}
+.logoutSubMenuInput{
+  margin: 0 auto!important;
+}
+
+.modalWindow {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  pointer-events: none;
+}
+
+.modal {
+  max-width: 300px;
+  position: relative;
+  margin: 1% auto;
+  padding: 20px;
+  border-radius: 5px;
+  background: $modalBackground;
+  text-align: center;
+  box-shadow:  0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.modal input {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.modal a {
+  text-decoration: none;
+  color: $modalColor;
+}
+
+.modal a:hover {
+  color: $hoverBackgroundButton;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.close:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: $colorLink;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.button {
+  border: 2px solid $colorButton;
+  line-height: 1.375;
+  font-weight: 700;
+  color: $colorButton;
+  cursor: pointer;
+  padding: 0.5em;
+  margin: .375rem;
+  background-color: transparent;
+  border-radius: 4px;
+  height: auto;
+}
+
+.button:hover {
+  background: $hoverBackgroundButton;
+  color: $hoverColorButton;
+  transition: 0.4s;
+}
+
+.borderForm {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid darkgrey;
+}
+
+.title {
+  font-size: $titleModalSize;
+  color: black;
+  font-weight: bold;
+  border-bottom: 1px black solid;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.deleteVideoTitle{
+  color:$colorButton;
+}
+
+
+/* Loader */
+.loader {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: url('/assets/img/loadingBar.gif') 50% 50% no-repeat;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: wait;
+}
+
+/*Errors Messages */
+
+
+.error {
+  color: $errorColorMessage;
+  font-size: $errorMessageSize;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.inputTxtError {
+  border: 1px solid $errorBorderColorMessage;
+  color: $errorColorMessage;
+}
+.error {
+  color: $errorBorderColorMessage;
+  font-size: $errorMessageSize;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.inputTxtError {
+  margin: 1px;
+  border: 1px solid $errorBorderColorMessage;
+  color: $errorColorMessage;
+}
+
+.labelAnswer{
+  vertical-align: super;
+}
+.inputAnswer{
+  width: 15%!important;
+  display: inline-block;
+}
+
+@media screen and (min-width: 720px) {
+  .button{
+    padding: .75rem;
+  }
+}

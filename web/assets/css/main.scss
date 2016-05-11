@@ -1,0 +1,58 @@
+.hamsterHubLogo {
+  width: 250px;
+  position: absolute;
+  top: 12px;
+}
+
+iframe {
+  border: none;
+}
+
+main {
+  margin: 8px;
+  padding-top: 70px;
+}
+
+a{
+  text-decoration: none;
+  color: $colorLink;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+.hidden{
+  visibility: hidden;
+}
+.shareVideos{
+  font-size: $titleVideosSize;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: $titleVideosFamily;
+}
+
+@media screen and (min-width: 720px) {
+
+  main {
+    padding-left: 200px;
+
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  main {
+    max-width: 100%;
+    padding-left: 250px;
+  }
+  .container {
+    margin: auto 10%;
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .container{
+    margin: 0 auto;
+  }
+}

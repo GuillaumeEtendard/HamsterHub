@@ -6,33 +6,19 @@ window.onload = function () {
 
         var height = (document.body.clientHeight);
         height = height / 4;
-
+        $('.aside').css({zIndex: -1});
+        $('iframe').css({zIndex: -1});
         for (var i = 0; i < window.length; i++) {
             window[i].style.display = "block";
             window[i].style.pointerEvents = "auto";
-           /* for (var a = 0; a < modal.length; a++) {
-                modal[a].style.margin = height + "px auto";
-            }*/
         }
         return false;
     });
     var close = $('.close');
     close.click(function () {
-        $('.signUpWindow').css('display', 'none');
+        $('.modalWindow').css('display', 'none');
+        $('iframe').css({zIndex: 1});
+        $('.aside').css({zIndex: 1});
     });
-    close.click(function () {
-        $('.signInWindow').css('display', 'none');
-    });
-    close.click(function () {
-        $('.addVideoWindow').css('display', 'none');
-    });
-    close.click(function () {
-        $('.editVideoWindow').css('display', 'none');
-    });
-    close.click(function () {
-        $('.deleteVideoWindow').css('display', 'none');
-    });
-    close.click(function () {
-        $('.deleteCommentWindow').css('display', 'none');
-    });
+
 };
