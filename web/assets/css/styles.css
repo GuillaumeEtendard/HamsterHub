@@ -78,7 +78,8 @@ a:hover {
   font-size: 150%;
   text-align: center;
   margin-bottom: 50px;
-  font-family: "Lucida Sans", sans-serif; }
+  font-family: "Lucida Sans", sans-serif;
+  margin-top: 20px; }
 
 section {
   background-color: #FFFFFF; }
@@ -160,7 +161,7 @@ section {
 
   header {
     height: 60px;
-    margin: 8px; } }
+    padding: 8px; } }
 /* Sign */
 input {
   display: block;
