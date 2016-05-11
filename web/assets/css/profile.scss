@@ -1,0 +1,24 @@
+.infoContainer {
+  font-weight: 400;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  border: solid 1px lightgrey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-bottom: 40px;
+}
+
+.profile-pic {
+  padding-top: 20px;
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 720px) {
+  .infoContainer {
+    border: none;
+  }
+}

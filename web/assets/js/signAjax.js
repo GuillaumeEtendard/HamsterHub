@@ -6,7 +6,7 @@ $(function () {
 
         var modalWindow = $(".modalWindow");
         var loader = $(".loader");
-        var msg = '';
+        $('.error').html("");
         $.ajax({
             url: '/' + this.name,
             method: 'POST',
@@ -27,7 +27,7 @@ $(function () {
                 data = JSON.parse(data.responseText);
 
                 $.each(data.errors, function(i, v) {
-                    msg = '<label class="error" for="'+i+'">'+v+'</label>';
+                    var msg = '<label class="error" for="'+i+'">'+v+'</label>';
                     $('input[name="' + i + '"], select[name="' + i + '"]').addClass('inputTxtError').after(msg);
                 });
             }
