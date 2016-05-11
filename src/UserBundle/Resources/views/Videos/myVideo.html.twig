@@ -3,6 +3,7 @@
 <body>
 <main role="main">
     {% include 'UserBundle:Base:header.html.twig' %}
+    {% include 'UserBundle:Base:menu.html.twig' %}
     <div class="loader"></div>
     {% if videos is empty %}
         <p>Vous n'avez pas de vidéos</p>
@@ -23,13 +24,15 @@
                 </div>
 
                 <div>
-                    <p>{% if video.videoViews %}{{ video.videoViews }} views |{% endif %} {{ video.videoDate.date|date("d/m/Y") }}</p>
+                    <p>{% if video.videoViews %}{{ video.videoViews }} vues |{% endif %} {{ video.videoDate.date|date("d/m/Y") }}</p>
                 </div>
                 {% include 'UserBundle:Videos:editVideo.html.twig' %}
                 {% include 'UserBundle:Videos:deleteVideo.html.twig' %}
             </article>
         {% endfor %}
     </section>
+    {% include 'UserBundle:Base:footer.html.twig' %}
+
 </main>
 </body>
 </html>

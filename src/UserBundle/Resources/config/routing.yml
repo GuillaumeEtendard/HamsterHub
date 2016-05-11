@@ -49,3 +49,7 @@ page_commentaire:
 delete_comment:
     path:    /deleteComment/{id}
     defaults: {_controller: UserBundle:Video:deleteComment}
+
+random:
+    path:    /random
+    defaults: {_controller: UserBundle:Video:randomVideo}

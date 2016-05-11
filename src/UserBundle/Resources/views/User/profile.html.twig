@@ -3,21 +3,25 @@
 <body>
 <main role="main">
     {% include 'UserBundle:Base:header.html.twig' %}
-    <div class="containerProfile">
-        <a class="goToVideo" href="../user/{{ nickname }}">Show {{ nickname }} videos</a><br><br>
-
+    {% include 'UserBundle:Base:menu.html.twig' %}
+    <div class="containerProfile container">
+        <a class="goToVideo" href="../user/{{ nickname }}">Voir les vidéos de {{ nickname }}</a><br><br>
         <div class="loader"></div>
+        {% block profile %}
         <div class="data-profile">
-            {% block profile %}
-            <p>Nickname  <br>{{ nickname }}</p><br>
-            <p>Email  <br>{{ email }}</p><br>
-            <p>Date de naissance  <br>{{ birthDate|date('d-m-Y') }}</p><br>
+            <h1>Profile</h1>
+            <div class="profile-pic"> <img src="../assets/uploads/{{ profileImageName }}"
+                                           alt="Profile Image">
+            </div>
+            <div class="infoContainer">
+                <p>Pseudo <br>{{ nickname }}</p><br>
+                <p>Email <br>{{ email }}</p><br>
+                <p>Date de naissance <br>{{ birthDate|date('d-m-Y') }}</p>
+            </div>
         </div>
-        <div class="profile-pic"><p>Image de profile</p> <img src="../assets/uploads/{{ profileImageName }}"
-                                                              alt="{{ profileImageName }}"></div>
-        <br>
-        {% endblock %}
     </div>
+    {% endblock %}
+    {% include 'UserBundle:Base:footer.html.twig' %}
 </main>
 </body>
 </html>

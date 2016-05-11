@@ -1,18 +1,18 @@
 {% block deleteVideo %}
     <button name="delete{{ video.youtubeId }}" type="submit" class="button">
-        Delete Video
+        Supprimer Video
     </button>
     <div class="deleteVideoWindow delete{{ video.youtubeId }}Window modalWindow">
         <div class="modal">
             <form name="deleteVideo/{{ video.id }}" class="form" method="post">
                 <fieldset class="borderForm">
-                    <p class="title deleteVideoTitle">Delete video ?</p>
+                    <p class="title deleteVideoTitle">Supprimer vidéo ?</p>
                     <div class="videoNameInput">
-                        <label class="labelAnswer" for="video{{ video.youtubeId }}Yes">Yes</label>
+                        <label class="labelAnswer" for="video{{ video.youtubeId }}Yes">Oui</label>
                         <input type="radio" class="inputAnswer" id="video{{ video.youtubeId }}Yes" name="videoName" value="Yes">
                     </div>
                     <div class="nameInput">
-                        <label class="labelAnswer" for="video{{ video.youtubeId }}No">No</label>
+                        <label class="labelAnswer" for="video{{ video.youtubeId }}No">Non</label>
                         <input type="radio" class="inputAnswer" id="video{{ video.youtubeId }}No" name="videoName" value="No" onclick="location.reload()">
                     </div>
                     <input type="hidden" name="videoId" value="{{ video.id }}">

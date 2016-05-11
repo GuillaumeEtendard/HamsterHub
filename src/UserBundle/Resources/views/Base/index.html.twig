@@ -3,9 +3,15 @@
 <body>
 <main role="main">
     {% include 'UserBundle:Base:header.html.twig' %}
-    <div class="loader"></div>
-    <!--undefined variable si rien dans la base de données-->
-    {% include 'UserBundle:Videos:videos.html.twig' %}
+    {% include 'UserBundle:Base:menu.html.twig' %}
+    <h3 class="shareVideos">Partagez vos vidéos !</h3>
+
+    <div class="container">
+        <div class="loader"></div>
+        <!--undefined variable si rien dans la base de données-->
+        {% include 'UserBundle:Videos:videos.html.twig' %}
+    </div>
+    {% include 'UserBundle:Base:footer.html.twig' %}
 </main>
 </body>
 </html>

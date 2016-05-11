@@ -3,6 +3,7 @@
 <body>
 <main role="main">
     {% include 'UserBundle:Base:header.html.twig' %}
+    {% include 'UserBundle:Base:menu.html.twig' %}
     <div class="loader"></div>
     <div class="container">
         {% block video %}
@@ -45,6 +46,8 @@
             {% endfor %}
         {% endblock %}
     </div>
+    {% include 'UserBundle:Base:footer.html.twig' %}
+
 </main>
 </body>
 </html>

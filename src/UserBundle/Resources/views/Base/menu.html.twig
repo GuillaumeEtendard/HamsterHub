@@ -1,0 +1,22 @@
+{% block menu %}
+    <aside class="aside">
+        {% if app.request.session.get("userId") is null %}
+            <button value="Sign In" name="signIn" class="button">
+                Se Connecter
+            </button>
+            <button value="Sign Up" name="signUp" class="button">
+                S'inscrire
+            </button>
+
+        {% else %}
+            <nav>
+                <a class="button" href="/profile">Profile</a>
+                <a class="button" href="/myVideos">Mes Vidéos</a>
+                <a class="button" href="/random">Video aléatoire</a>
+                <form name="logout" class="form" method="post">
+                    <input type="submit" class="button logoutInput" value="Se Déconnecter">
+                </form>
+            </nav>
+        {% endif %}
+    </aside>
+{% endblock %}

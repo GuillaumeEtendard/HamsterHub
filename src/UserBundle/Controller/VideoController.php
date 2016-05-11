@@ -148,13 +148,13 @@ class VideoController extends Controller
             $em->remove($video[0]);
             $em->flush();
 
-            foreach($video as $value){
+            foreach ($video as $value) {
                 $youtubeIdVideos[] = $value->getYoutubeId();
             }
             $comments = $this->getDoctrine()
                 ->getRepository('EntitiesBundle:Comments')
                 ->findBy(array('idVideo' => $youtubeIdVideos));
-            foreach($comments as $comment){
+            foreach ($comments as $comment) {
                 $em->remove($comment);
             }
             $em->flush();
@@ -292,4 +292,24 @@ class VideoController extends Controller
         }
     }
 
+    public function randomVideoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $max = $em->createQuery('SELECT MAX(p.id)
+                                FROM EntitiesBundle:Videos p'
+        )->getSingleScalarResult();
+        $sq = $em->createQuery('SELECT p
+                               FROM EntitiesBundle:Videos p
+                               WHERE p.id >= :rand
+                               AND p.id != :bool'
+        )->setParameters(array('rand' => rand(0,$max), 'bool' => 1))
+            ->setMaxResults(1);
+        $result = $sq->getResult();
+        foreach($result as $video){
+            $youtubeIdRandom = $video->getYoutubeId();
+        }
+
+        return $this->redirectToRoute('video', array('id' => $youtubeIdRandom), 301);
+    }
 }

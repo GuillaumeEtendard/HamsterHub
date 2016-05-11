@@ -6,39 +6,23 @@
         <div class="subMenuHamburger">
             {% if app.request.session.get("userId") is null %}
                 <button value="Sign In" name="signIn" class="button">
-                    Sign In
+                    Se Connecter
                 </button><br>
                 <button value="Sign Up" name="signUp" class="button">
-                    Sign Up
+                    S'inscrire
                 </button>
             {% else %}
                 <a class="button" href="../profile">Profile</a>
                 <hr>
                 <a class="button" href="../myVideos">Mes Vidéos</a>
                 <hr>
-                <form name="logout" class="form" method="post" id="logout">
-                    <input type="submit" class="button logoutSubMenuInput" value="Logout">
+                <form name="logout" class="form" method="post">
+                    <input type="submit" class="button logoutSubMenuInput" value="Se Déconnecter">
                 </form>
             {% endif %}
         </div>
         <a href="../"><img src="{{ asset('assets/img/HamsterHubLogo.svg') }}" class="hamsterHubLogo"
                            alt="Hamster Hub Logo"></a>
-        <div class="subMenu">
-            {% if app.request.session.get("userId") is null %}
-                <button value="Sign In" name="signIn" class="button">
-                    Sign In
-                </button>
-                <button value="Sign Up" name="signUp" class="button">
-                    Sign Up
-                </button>
-            {% else %}
-                <a class="button" href="../profile">Profile</a>
-                <a class="button" href="../myVideos">Mes Vidéos</a>
-                <form name="logout" class="form" method="post" id="logout">
-                    <input type="submit" class="button logoutInput" value="Logout">
-                </form>
-            {% endif %}
-        </div>
         {% include 'UserBundle:Register:signIn.html.twig' %}
         {% include 'UserBundle:Register:signUp.html.twig' %}
     </header>
