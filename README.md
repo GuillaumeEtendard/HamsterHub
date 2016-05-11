@@ -1,4 +1,4 @@
 HamsterHub
 ==========
 
-A Symfony project created on April 20, 2016, 12:36 pm.
+Site de partage de vidéos Youtube réalisé en Symfony2
